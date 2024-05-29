@@ -9,10 +9,12 @@ import sys
 import hashlib
 from logging.handlers import TimedRotatingFileHandler
 
+ipaddr=""
+
 hashhost=hashlib.md5(socket.gethostname().encode()).hexdigest()
 FORMATTER_STRING = "%(asctime)s - "+hashhost+" - %(name)s - %(levelname)s - %(message)s"
 FORMATTER = logging.Formatter(FORMATTER_STRING)
-LOG_FILE = "/home/efim/my_app.log" # use fancy libs to make proper temp file
+LOG_FILE = "./my_app.log" # use fancy libs to make proper temp file
 
 def get_logger(logger_name):
     logger = logging.getLogger(logger_name)
@@ -37,7 +39,7 @@ def on_message(client, userdata, message):
     logger.info('Received message = "'+data+'"')
 
 try:
-    r = requests.get('http://51.250.123.8:8000/auth')
+    r = requests.get('http://'+ipaddr+':8000/auth')
     id = r.json()['id']
     logger.debug("Got ID from fastapi app")
 except:
