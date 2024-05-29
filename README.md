@@ -5,7 +5,9 @@
 Для работы программ необходимы библиотеки для python: fastapi, datetime, time, hashlib, socket, logging, paho.mqtt.client, requests. Кроме того вам понадобится программный сервер Uvicorn для запуска приложения на FastApi
 # 2. Запуск приложений
 1.Запустите приложение main.py с помощью Uvicorn командой ```uvicorn main:app --host=0.0.0.0 --port=8000```.
+
 2.Запустите скрипты client.py и broker.py.
+
 3.Провертье логи запустив скрипт logcheck.py.
 # main.py
 Простенькое приложение на FastApi которое содержит всего один запрос на создание уникального ID.
